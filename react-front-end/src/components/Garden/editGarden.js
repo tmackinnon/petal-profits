@@ -1,59 +1,50 @@
 import React, { useState } from 'react';
-import Submit from './Submit';
 import './submit.scss';
-import axios from 'axios';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from '@fortawesome/free-solid-svg-icons'
 
 const EditGarden = (props) => {
-  const [name, newName] = useState(props.name);
-  const [target, newTarget] = useState(props.amount)
 
-  function updateGoal(goalId, body) {
-    // recreate categoryGoals with new amnt
-    // let categoryGoalId = 0;
-    // const updatedGoals = categoryGoals.map((goal) => {
-    //   if (goal.category_id === categoryId) {
-    //     categoryGoalId = goal.id;
-    //     return { ...goal, amount };
-    //   }
-    //   return goal;
-    // });
-     //update categoryGoals state to reflect new value
-    return axios.put(`http://localhost:8080/api/plant-goals/${goalId}`, {name, target})
-      .then(() => {
-        // setCategoryGoals(updatedGoals);
-        props.onClose()
-      })
-      .catch(error => console.log(error))
-    }
-
-
-
+  const [name, setName] = useState(props.name);
+  const [target, setTarget] = useState(props.amount)
 
   return (
-    <>
-      <form autoComplete="off" onSubmit={e => e.preventDefault()}>
-        <div className="modalContainer" id={`id$(goals.id)`}>
-          <h1 className='popupHeader'>EDIT</h1>
-          <span onClick={props.onClose} className='closeBtn' >X</span>
-          <span className='input'>
-          <input type='text' value={name} onChange = {(event) => newName(event.target.value)}></input>
-          </span>
-          <p></p>
-          <span className='input'>
-          <input type='number' value={target} onChange={(event) => newTarget(event.target.value)}></input>
-          </span>
-          <div className=''>
-            <button className='outerBTN'
-              data-target={`id$(goals.id)`}
-              onClick={() => updateGoal(props.id)}
-            >
-              <Submit />
-            </button>
-          </div>
+    <div className="popup-box">
+    <div className="edit-form">
+
+      <div id='wrapper'>
+        <div onClick={() => props.onClose()} id="close">
+            <FontAwesomeIcon icon={faX} />
         </div>
+      </div>
+
+      <form autoComplete="off" onSubmit={e => e.preventDefault()}>
+        <header>
+          <h2>Update Your Plant Goal</h2>
+        </header>
+        <input
+            name="edit-name"
+            type="text"
+            placeholder={name}
+            value={name}
+            onChange = {(event) => setName(event.target.value)}
+        />
+        <input
+            name="edit-amount"
+            type="number"
+            placeholder={target}
+            value={target}
+            onChange = {(event) => setTarget(event.target.value)}
+        />
       </form>
-    </>
+
+      <div className="buttons">
+        <button id="cancel" onClick={() => props.onClose()}>Cancel</button>
+        <button id="save" onClick={() => props.onSubmit(props.id, {name, target})}>Save</button>
+      </div>
+
+    </div>
+    </div>
   )
 }
 

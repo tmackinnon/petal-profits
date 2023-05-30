@@ -21,7 +21,7 @@ export default function Garden(props) {
   const onSubmitForm = async (e) => {
     try {
       const body = { name, amount };
-      await axios.post("http://localhost:8080/api/garden", body);
+      await axios.post("http://localhost:8080/api/plant-goals", body);
       window.location = '/';
     } catch (err) {
       console.error(err.message);
@@ -45,7 +45,6 @@ export default function Garden(props) {
         </h1>
         <div className='container'>
           <InputGarden />
-          
           <div className='addNew' onClick={() => setbuttonPopup(true)} >
             <Lottie className='buttonPulse'
               loop
@@ -82,8 +81,8 @@ export default function Garden(props) {
                 <span className="input">
                   <input type="text" placeholder="Give your goal a name"
                     value={name}
-                    onChange={e => setname(e.target.value)} />
-                  <span></span>
+                    onChange={e => setname(e.target.value)}
+                  />
                 </span>
               </p>
 
@@ -91,17 +90,13 @@ export default function Garden(props) {
                 <span className="input">
                   <input type="number" placeholder="How much would you like to save?"
                     value={amount}
-                    onChange={e => setamount(e.target.value)} />
-                  <span></span>
+                    onChange={e => setamount(e.target.value)}
+                  />
                 </span>
               </p>
-              <br></br>
               <div onClick={(e) => onSubmitForm(e.target.value)}>
                 <Submit />
               </div>
-              <br></br>
-
-
             </Popup>
           </form>
         </div>
