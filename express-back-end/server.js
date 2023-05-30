@@ -18,13 +18,11 @@ App.use(Express.static('public'));
 App.use(morgan('dev'));
 App.use(cors());
 
-//import routers
+//import router
 const apiRoutes = require('./routes/api')
-const gardenRouter = require("./routes/garden")
 
-//use routers
+//use router
 App.use('/api', apiRoutes)
-App.use('/garden', gardenRouter)
 
 // homepage route (example below - change when working on homepage)
 App.get('/', (req, res) => res.json({

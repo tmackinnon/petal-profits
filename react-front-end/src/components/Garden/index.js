@@ -1,12 +1,11 @@
-// import Lottie from 'lottie-react-native';
 import Lottie from 'react-lottie-player'
-
 import buttonPulse from '../../button-pulse.json'
 import Popup from '../../hooks/Popup';
 import { useState } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import Submit from './Submit';
 import './submit.scss';
+import axios from 'axios';
 
 //components
 import InputGarden from './inputGarden';
@@ -21,18 +20,13 @@ export default function Garden(props) {
   //code for post request to the back end.
   const onSubmitForm = async (e) => {
     try {
-      const body = { name, amount }
-      const response = await fetch("/garden", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-      });
-      console.log(body)
-      window.location = '/'
+      const body = { name, amount };
+      await axios.post("http://localhost:8080/api/garden", body);
+      window.location = '/';
     } catch (err) {
-      console.error(err.message)
+      console.error(err.message);
     }
-  }
+  };
 
   //to make button in popup stay selected.
   const btnEL = document.querySelectorAll('.innerbutton');
@@ -50,10 +44,8 @@ export default function Garden(props) {
           My Garden
         </h1>
         <div className='container'>
-          <div>
-            <InputGarden />
-          </div>
-
+          <InputGarden />
+          
           <div className='addNew' onClick={() => setbuttonPopup(true)} >
             <Lottie className='buttonPulse'
               loop

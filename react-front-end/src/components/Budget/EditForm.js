@@ -53,16 +53,6 @@ export default function EditForm(props) {
       <div className="note">
         <p>By setting a spending limit, you can keep better track of your expenses throughout the month.</p>
       </div>
-      {/*Mathews save button - come back to this*/}
-      {/* <div className="wrapper">
-        <input type="checkbox" name="submit" className="check" id="submit" />
-        <label htmlFor="submit" className="button" onClick={() => saveGoal(props.category)}>
-          <span id="save" className="submit-text">Save</span>
-          <span className="submit-confirm">
-          <i className="fa fa-check"></i>
-          </span>
-        </label>
-      </div> */}
 
       <div className="buttons">
       <button id="cancel" onClick={() => props.onClose()}>Cancel</button>
