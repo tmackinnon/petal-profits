@@ -4,11 +4,11 @@ import Popup from '../../hooks/Popup';
 import { useState } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 import Submit from './Submit';
-import './submit.scss';
 import axios from 'axios';
+import './garden.scss'
 
 //components
-import InputGarden from './inputGarden';
+import Carousel from './Carousel';
 
 //to not show pop up until pressed
 export default function Garden(props) {
@@ -38,45 +38,23 @@ export default function Garden(props) {
   })
 
   return (
-    <>
-      <div className='page'>
-        <h1 className='banner'>
-          My Garden
-        </h1>
-        <div className='container'>
-          <InputGarden />
-          <div className='addNew' onClick={() => setbuttonPopup(true)} >
-            <Lottie className='buttonPulse'
+    <div className='garden'>
+      <h1 className='banner'>My Garden</h1>
+
+          <Carousel/>
+          {/* <div className='addNew' onClick={() => setbuttonPopup(true)} >
+            <Lottie 
+              className='buttonPulse'
               loop
               animationData={buttonPulse}
               play
               style={{ width: 150, height: 150 }}
-            /> ADD NEW GOAL
-          </div>
-        </div>
+            />
+          </div> */}
 
-        <div>
-          <form onSubmit={onSubmitForm}>
+          {/* <form onSubmit={onSubmitForm}>
             <Popup trigger={buttonPopup} setTrigger={setbuttonPopup}>
               <h1 className='popupHeader'> PLANT A GOAL</h1>
-              {/* <div className='section'>
-                <div className='section1'>
-                  <div className='innerbutton'>
-                    "saving for a big purchase"
-                  </div>
-                  <div className='innerbutton'>
-                    "Paying off my debt"
-                  </div>
-                </div>
-                <div className='section2'>
-                  <div className='innerbutton'>
-                    "Emergency Fund"
-                  </div>
-                  <div className='innerbutton'>
-                    "Saving for a trip"
-                  </div>
-                </div>
-              </div> */}
               <p>
                 <span className="input">
                   <input type="text" placeholder="Give your goal a name"
@@ -98,11 +76,7 @@ export default function Garden(props) {
                 <Submit />
               </div>
             </Popup>
-          </form>
-        </div>
-      </div>
-
-
-    </>
+          </form> */}
+    </div>
   )
 }

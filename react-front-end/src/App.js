@@ -35,12 +35,11 @@ export default function App(props){
           </div>
         </nav>
 
-
       <TransactionsProvider>
       <Routes>
         <Route path='/' exact Component={Home}/>
         <Route path='/transactions' Component={Budget}/>
-        <Route path='/garden' exact Component={Garden}/>
+        <Route path='/garden' Component={Garden}/>
         <Route path='/account' Component={Account}/>
       </Routes>
       </TransactionsProvider>

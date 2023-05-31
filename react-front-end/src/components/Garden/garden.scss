@@ -3,52 +3,41 @@ $primary: #E4F9F5;
 $secondarycolor: #FAA381;
 $icons: #05648A;
 
-html {
-  background-color: $primary;
-}
-
-.page {
+.garden {
   display: flex;
+  width: 80%;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 20px;
-  background-color: $primary;
-  width: 100%; //added by TM to center the page
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: $icons;
 }
 
 .progressBar {
   display: flex;
-  flex-direction: row;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  width: 800px;
+  width: 100%;
   height: 80px;
 }
 
 .plant-img {
   background-color: $maincolor;
   border-radius: 30px 0 30px 0;
-  margin-top: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .banner {
   display: flex;
   justify-content: center;
-  width: 95%;
+  width: 50%;
   height: 50px;
-  font-size: 32px;
   color: $icons;
   border-bottom: $icons solid 1px;
 }
 
-.container {
-  background-color: $primary;
-  width: 80%;
-  flex-direction: row;
-
-  .buttonPulse {
-    font-size: 32px;
-    color: $maincolor;
-  }
+.buttonPulse {
+  font-size: 32px;
+  color: $maincolor;
 }
 
 .addNew {
@@ -60,6 +49,7 @@ html {
   align-items: center;
   background-color: $maincolor;
   border-radius: 15px;
+  width: 80%;
 }
 
 .addNew:hover {
@@ -83,13 +73,13 @@ html {
 }
 
 .tAmount {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 24px;
+  font-size: 20px;
+  margin-top: 0px;
 }
 
 .gAmount {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 24px;
+  font-size: 20px;
+  margin-top: 0px;
 }
 
 .edits {
@@ -102,6 +92,44 @@ html {
 .amounts {
   display: flex;
   justify-content: space-between;
-  width: 750px;
+  width: 100%;
+  color: black;
+  margin-top: 10px;
 }
 
+.carousel {
+  width: 80%;
+  overflow: auto;
+  position: relative;
+  display: flex;
+  border-radius: 15px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  .carousel-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    scroll-snap-type: x mandatory;
+    h3 {
+      color: $icons;
+      font-size: 24px;
+    }
+  }
+}
+
+.plantgoal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60vw;
+  padding-left: 20px;
+  padding-right: 20px;;
+
+  footer {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

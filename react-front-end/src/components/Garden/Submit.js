@@ -1,3 +1,5 @@
+import './submit.scss';
+
 export default function Submit() {
 
   return (

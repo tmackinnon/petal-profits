@@ -78,21 +78,21 @@ const InputGarden = () => {
             loop={false}
             style={{ width: 300, height: 300 }}
           />
-          <div className="progressBar" >
+          <footer>
             <ProgressBar  bgcolor={'#05648A'} completed={Math.round(tAmount/gAmount * 100)} />
-          </div>
-          <div className='amounts'>
-            <p className='tAmount'>${tAmount.toLocaleString()}</p>
-            <p className='gAmount'>${gAmount.toLocaleString()}</p>
-          </div>
+            <div className='amounts'>
+              <p className='tAmount'>${tAmount.toLocaleString()}</p>
+              <p className='gAmount'>${gAmount.toLocaleString()}</p>
+            </div>
+            </footer>
       </div>
     );
   })
 
   return(
-  <ul>
-    {plantGoals}
-  </ul>
+    <div className="carousel-slide">
+        {plantGoals}
+    </div>
 )};
 
 

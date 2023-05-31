@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './submit.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from '@fortawesome/free-solid-svg-icons'
 
