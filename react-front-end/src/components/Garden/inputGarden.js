@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import lottieJson from '../../plant_animation.json'
 import ProgressBar from "./progress-bar";
 import 'font-awesome/css/font-awesome.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import Lottie from 'react-lottie-player'
 import EditGarden from './editGarden';
 import axios from 'axios';
@@ -53,30 +55,32 @@ const InputGarden = () => {
     const gAmount = Number(item.target_amount)
 
     return (
-      <div key={item.id} className='plantgoal'>
-          <h3 className='header'>{item.name}</h3>
+      <div key={item.id} className="carousel-slide">
+        <header className='header'>
+          <h3>{item.name}</h3>
 
           {!edit && (
-            <button className= 'button' onClick={() => toggleForm(item.id)}>
-              Edit
+            <button className= 'edit-button' onClick={() => toggleForm(item.id)}>
+              <FontAwesomeIcon icon={faPenToSquare} style={{color: "#8fd0a5"}} />
             </button>
           )}
           {edit && (
             <EditGarden
-              name={item.name}
-              amount={item.target_amount}
-              onClose={() => toggleForm(item.id)}
-              onSubmit={updateGoal}
-              id={item.id}
+            name={item.name}
+            amount={item.target_amount}
+            onClose={() => toggleForm(item.id)}
+            onSubmit={updateGoal}
+            id={item.id}
             />
-          )}
+            )}
+        </header>
 
           <Lottie className='plant-img'
             animationData={lottieJson}
             play
             segments={[0, Math.round(tAmount/gAmount * 100)]}
             loop={false}
-            style={{ width: 300, height: 300 }}
+            style={{ width: 250, height: 250 }}
           />
           <footer>
             <ProgressBar  bgcolor={'#05648A'} completed={Math.round(tAmount/gAmount * 100)} />
@@ -90,7 +94,7 @@ const InputGarden = () => {
   })
 
   return(
-    <div className="carousel-slide">
+    <div className="carousel">
         {plantGoals}
     </div>
 )};

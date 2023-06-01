@@ -8,7 +8,7 @@ import axios from 'axios';
 import './garden.scss'
 
 //components
-import Carousel from './Carousel';
+import InputGarden from './inputGarden';
 
 //to not show pop up until pressed
 export default function Garden(props) {
@@ -41,7 +41,7 @@ export default function Garden(props) {
     <div className='garden'>
       <h1 className='banner'>My Garden</h1>
 
-          <Carousel/>
+          <InputGarden/>
           {/* <div className='addNew' onClick={() => setbuttonPopup(true)} >
             <Lottie 
               className='buttonPulse'
