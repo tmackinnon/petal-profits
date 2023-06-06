@@ -48,13 +48,12 @@ $icons: #05648A;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   justify-content: center;
   align-items: center;
-  background-color: $maincolor;
-  border-radius: 15px;
+  background-color: white;
   width: 80%;
 }
 
 .addNew:hover {
-  background-color: $secondarycolor;
+  cursor: pointer;
 }
 
 .innerbutton {
@@ -107,7 +106,6 @@ $icons: #05648A;
   margin-top: 30px;
   margin-bottom: 50px;
   box-shadow: 2px 4px 6px #05648a42;
-  // filter: drop-shadow(2px 4px 6px #05648a42);
   .carousel-slide {
     display: flex;
     align-items: center;

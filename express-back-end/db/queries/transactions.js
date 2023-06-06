@@ -89,7 +89,6 @@ const getCurrentAccountBalance = (userId) => {
   return db
     .query(queryString, [userId])
     .then((data) => {
-      console.log(data);
       return data.rows
     })
     .catch((err) => {

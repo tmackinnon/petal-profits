@@ -52,8 +52,8 @@ router.get('/plant-goals', (req, res) => {
 //create a plant goal
 router.post('/plant-goals', (req, res) => {
   const userId = 1
-  const { name, amount } = req.body
-  createNewGoal(userId, name, amount)
+  const { name, target } = req.body
+  createNewGoal(userId, name, target)
     .then(data => res.json(data))
     .catch(error => console.log(error))
 })

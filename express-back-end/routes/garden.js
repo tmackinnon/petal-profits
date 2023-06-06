@@ -57,14 +57,14 @@ const db = require('../db/connection')
 //   }
 // })
 
-//update/edit a goal
-router.put('/:id', async (req, res) =>{
-     const { name } = req.body
-     const { id } = req.params
-  return db.query("UPDATE plant_goals SET name = $1 WHERE id = $2;", 
-     [name, id])
-     .then((responce) => {res.json(responce.rows)})
-      .catch((error) => console.error(error))
+// //update/edit a goal
+// router.put('/:id', async (req, res) =>{
+//      const { name } = req.body
+//      const { id } = req.params
+//   return db.query("UPDATE plant_goals SET name = $1 WHERE id = $2;", 
+//      [name, id])
+//      .then((responce) => {res.json(responce.rows)})
+//       .catch((error) => console.error(error))
   // try{
   //   const { name } = req.body
   //   const { id } = req.params
@@ -77,7 +77,7 @@ router.put('/:id', async (req, res) =>{
   // } catch (err) {
   //   console.error(err.message)
   // }
-})
+// })
 
 
 //delete a goal

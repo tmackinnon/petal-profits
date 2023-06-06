@@ -14,9 +14,9 @@ const getPlantGoals = (userId) => {
 }
 
 const createNewGoal = (userId, goalName, amount) => {
-  const queryString = `INSERT INTO plant_goals (name, target_amount, user_id) VALUES ($1, $2, $3);`
+  const queryString = `INSERT INTO plant_goals (name, target_amount, user_id) VALUES ($1, $2, $3) RETURNING *;`
   return db
-    .query(queryString, [userId, goalName, amount])
+    .query(queryString, [goalName, amount, userId])
     .then((data) => {
       return data.rows[0];
     })

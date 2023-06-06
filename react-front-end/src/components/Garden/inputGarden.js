@@ -4,13 +4,16 @@ import ProgressBar from "./progress-bar";
 import 'font-awesome/css/font-awesome.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+import buttonPulse from '../../button-pulse.json'
 import Lottie from 'react-lottie-player'
 import EditGarden from './editGarden';
 import axios from 'axios';
+import NewGoal from './newGoal';
 
 const InputGarden = () => {
   const [goals, setGoals] = useState([])
   const [isEditOpen, setIsEditOpen] = useState({});
+  const [isAddOpen, setIsAddOpen] = useState(false)
 
   useEffect(() =>{
     axios.get('http://localhost:8080/api/plant-goals')
@@ -29,6 +32,8 @@ const InputGarden = () => {
       [plantGoalId]: !prev[plantGoalId],
     }));
   }
+
+
 
   function updateGoal(goalId, {name, target}) {
     // recreate goals with new info
@@ -96,6 +101,25 @@ const InputGarden = () => {
   return(
     <div className="carousel">
         {plantGoals}
+        {!isAddOpen && (
+          <div className="addNew">
+            <Lottie 
+              onClick={() => setIsAddOpen(true)}
+              className='buttonPulse'
+              loop
+              animationData={buttonPulse}
+              play
+              style={{ width: 150, height: 150 }}
+            />
+          </div>
+        )}
+        {isAddOpen && (
+          <NewGoal
+            onClose={() => setIsAddOpen(false)}
+            setGoals={setGoals}
+            goals={goals}
+          />
+        )}
     </div>
 )};
 
