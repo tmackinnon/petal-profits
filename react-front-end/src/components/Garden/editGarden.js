@@ -1,54 +1,49 @@
 import React, { useState } from 'react';
-import Submit from './Submit';
-import './submit.scss';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from '@fortawesome/free-solid-svg-icons'
 
+const EditGarden = (props) => {
 
-const EditGarden = ({ open, onClose, goal, reFetch }) => {
-  const [name, newName] = useState(goal.name);
-  const [target, newTarget] = useState(goal.target_amount)
-
-  //
-  const update = async (e) => {
-    try {
-      const body = { name, target }
-      console.log(body)
-      const response = await fetch(`http://localhost:8080/garden/1`, {
-        method: "PUT",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify(body)
-
-      })
-      reFetch();
-    } catch (err) {
-      console.error(err.message)
-    }
-  }
-
+  const [name, setName] = useState(props.name);
+  const [target, setTarget] = useState(props.amount)
 
   return (
-    <>
-      <form autoComplete="off" onSubmit={e => e.preventDefault()}>
-        <div className="modalContainer" id={`id$(goals.id)`}>
-          <h1 className='popupHeader'>EDIT</h1>
-          <a onClick={onClose} className='closeBtn' >X</a>
-          <span className='input'>
-          <input type='text' value={name} onChange = {(event) => newName(event.target.value)}></input>
-          </span>
-          <p></p>
-          <span className='input'>
-          <input type='number' value={target} onChange={(event) => newTarget(event.target.value)}></input>
-          </span>
-          <div className=''>
-            <button className='outerBTN'
-              data-target={`id$(goals.id)`}
-              onClick={e => update(e)}
-            >
-              <Submit />
-            </button>
-          </div>
+    <div className="popup-box">
+    <div className="edit-form">
+
+      <div id='wrapper'>
+        <div onClick={() => props.onClose()} id="close">
+            <FontAwesomeIcon icon={faX} />
         </div>
+      </div>
+
+      <form autoComplete="off" onSubmit={e => e.preventDefault()}>
+        <header>
+          <h2>Update Your Plant Goal</h2>
+        </header>
+        <input
+            name="edit-name"
+            type="text"
+            placeholder={name}
+            value={name}
+            onChange = {(event) => setName(event.target.value)}
+        />
+        <input
+            name="edit-amount"
+            type="number"
+            placeholder={target}
+            value={target}
+            onChange = {(event) => setTarget(event.target.value)}
+        />
       </form>
-    </>
+
+      <div className="buttons">
+        <button id="cancel" onClick={() => props.onClose()}>Cancel</button>
+        <button id="save" onClick={() => props.onSubmit(props.id, {name, target})}>Save</button>
+      </div>
+
+    </div>
+    </div>
   )
 }
 

@@ -1,12 +1,14 @@
-export default function Submit() {
+import './submit.scss';
+
+export default function Submit(props) {
 
   return (
-    <div className="wrapper">
+    <div className="wrapper" onClick={() => props.onClick()} >
       <input type="checkbox" name="submit" className="check" id="submit"/>
-        <label htmlFor="submit" className="button">
+        <div className="button">
           <span className="submit-text">Submit</span>
           <span className="submit-confirm"><i className="fa fa-check"></i></span>
-        </label>
+        </div>
     </div>
   )
 };

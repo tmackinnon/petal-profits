@@ -3,76 +3,42 @@ $primary: #E4F9F5;
 $secondarycolor: #FAA381;
 $icons: #05648A;
 
-html {
-  background-color: $primary;
-}
-
-.page {
+.garden {
   display: flex;
+  width: 80%;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 20px;
-  background-color: $primary;
-  width: 100%; //added by TM to center the page
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: $icons;
 }
 
 .progressBar {
   display: flex;
-  flex-direction: row;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  width: 800px;
+  width: 100%;
   height: 80px;
-}
-
-.plant {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background-color: $primary;
-  margin: 5px;
-  border-radius: 15px;
-  color: $icons;
-
 }
 
 .plant-img {
   background-color: $maincolor;
   border-radius: 30px 0 30px 0;
+  margin-bottom: 30px;
   margin-top: 10px;
+  padding: 25px;
 }
 
 .banner {
-  // background-color: $maincolor;
   display: flex;
   justify-content: center;
-  // width: 800px;
-  width: 95%;
+  width: 50%;
   height: 50px;
-  font-size: 32px;
-  // color: white;  
   color: $icons;
-  // border-radius: 15px;
   border-bottom: $icons solid 1px;
 }
 
-#id {
-  display: flex;
-  flex-direction: row;
-}
-
-.container {
-  background-color: $primary;
-  // height: 100vh; --needs this removed so navbar can go all the way down
-  width: 80vw;
-  flex-direction: row;
-
-
-
-  .buttonPulse {
-    font-size: 32px;
-    color: $maincolor;
-  }
+.buttonPulse {
+  font-size: 32px;
+  color: $maincolor;
 }
 
 .addNew {
@@ -82,14 +48,12 @@ html {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   justify-content: center;
   align-items: center;
-  background-color: $maincolor;
-  border-radius: 15px;
-
-
+  background-color: white;
+  width: 80%;
 }
 
 .addNew:hover {
-  background-color: $secondarycolor;
+  cursor: pointer;
 }
 
 .innerbutton {
@@ -105,16 +69,17 @@ html {
 .goalName {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 32px;
+  list-style-type: none;
 }
 
 .tAmount {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 24px;
+  font-size: 20px;
+  margin-top: 0px;
 }
 
 .gAmount {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 24px;
+  font-size: 20px;
+  margin-top: 0px;
 }
 
 .edits {
@@ -127,32 +92,59 @@ html {
 .amounts {
   display: flex;
   justify-content: space-between;
-  width: 750px;
+  width: 100%;
+  color: black;
+  margin-top: 10px;
 }
 
-.modalContainer {
-  color: icons;
-  border-radius: 30px 0 30px 0;
-  background-color: $primary;
-  width: 60vw;
+.carousel {
+  width: 80%;
+  overflow: auto;
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: $maincolor;
-  border-style: solid;
-  border-width: 5px;
-  
-    
+  border-radius: 15px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  box-shadow: 2px 4px 6px #05648a42;
+  .carousel-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    scroll-snap-type: x mandatory;
+    flex-direction: column;
+    width: 100vw;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    h3 {
+      color: $icons;
+      font-size: 20px;
+      margin: 0px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+      border-bottom: $icons 1px solid;
+      padding: 10px 0px;
+      margin: 10px 0px;
+    }
+    footer {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }
 
-.closeBtn {
-display: flex;
-position:absolute;
-right: 290px;
-top: 100px;
-width: 32px;
-height: 32px;
-opacity: 0.3;
-font-size: 32px;
+.edit-button {
+  cursor: pointer;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+  font-size: 16px;
 }
-

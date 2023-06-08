@@ -1,18 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
-// import { categoriesContext } from "./Budget/providers/CategoriesProvider"; ////tell Broooke about this line
 import { formatTitle } from '../Budget/helpers/formatTitle'
 import {Chart, ArcElement, Tooltip, Legend} from 'chart.js'
-import { transactionsContext } from '../../hooks/TransactionsProvider';///tell Broooke about this line
+import { transactionsContext } from '../../hooks/TransactionsProvider';
 Chart.register(ArcElement, Tooltip, Legend);
 
 export default function DonutChart() {
 
   const [infoButton, setInfoButton] = useState(false)
 
-  // const { categories } = useContext(categoriesContext); ///tell Broooke about this line
-
-  const { categories } = useContext(transactionsContext) ///tell Broooke about this line
+  const { categories } = useContext(transactionsContext)
 
   const catLabels = [] //hold name of categories
   const catData = [] //hold total amount in each category

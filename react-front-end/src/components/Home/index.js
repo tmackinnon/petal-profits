@@ -6,7 +6,6 @@ import AccountBalance from './AccountBalance';
 import DonutChart from './DonutChart';
 
 import './Home.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Home(props) {
   return (
