@@ -26,7 +26,7 @@ Things we would have liked to add to the app included:
 ![Home page of Petal Profits](https://github.com/B-Waterman/petal-profits/blob/master/docs/HomePage.png?raw=true)
 ![Budget Page 1](https://github.com/B-Waterman/petal-profits/blob/master/docs/BudgetPage1.png?raw=true)
 ![Budget Page 2](https://github.com/B-Waterman/petal-profits/blob/master/docs/BudgetPage2.png?raw=true)
-![My Garden Page](https://github.com/B-Waterman/petal-profits/blob/master/docs/GardenPage.png?raw=true)
+![My Garden Page](https://github.com/tmackinnon/petal-profits/blob/master/docs/GardenPage.png?raw=true)
 
 ---
 ## Boilerplate Source
